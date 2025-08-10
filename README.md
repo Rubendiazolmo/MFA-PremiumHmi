@@ -24,11 +24,9 @@ Scripts/
 
 ### 1. **Generación de claves**
 
-1. Ejecuta el programa `Ejecutables/SetUp/mfa-setup` en el equipo que ejecute la HMI.  
-
-Esto generará el archivo `config.conf` con las llaves necesarias para que funcione la herramienta, también generará un archvo `clave_privada.pem` con la llave privada para la validación de usuarios por USB. Adicionalmente también generará un QR para impotar el inicio de sesión en [Authy](https://www.authy.com/) (en teoría es compatible con más clientes como Microsoft Autenticator, o similares, pero para las pruebas se ha utilziado [Authy](https://www.authy.com/)).
+1. Ejecuta el programa `Ejecutables/SetUp/mfa-setup` en el equipo que ejecute la HMI. Esto generará el archivo `config.conf` con las llaves necesarias para que funcione la herramienta, también generará un archvo `clave_privada.pem` con la llave privada para la validación de usuarios por USB. Adicionalmente también generará un QR para impotar el inicio de sesión en [Authy](https://www.authy.com/) (en teoría es compatible con más clientes como Microsoft Autenticator, o similares, pero para las pruebas se ha utilziado [Authy](https://www.authy.com/)).
 2. Copia el archivo `config.conf` en la carpeta `Ejecutables`, reemplazando el existente.
-3. Importa el inicio de sesión en [Authy](https://www.authy.com/), es necesario crear una cuenta si no se dispone de una.
+3. Importa el inicio de sesión en [Authy](https://www.authy.com/), es necesario crear una cuenta si no se dispone de una.Puedes importar la configuración escaneando el código QR generado o utilizando la URL que se encuentra en el archivo config.conf, dentro del atributo CONFIG.TOTP_URL.
 4. Copia el archivo `clave_privada.pem` en un USB, creando una carpeta `auth` dentro. Quedando una ruta final tal que así `E:/auth/clave_privada.pem`
 5. Ejecuta `MFA_Hmi.exe` para comprobar que la instalación se ha realizado correctamente, se solicitará el código de verificación, al introducir el obtendo en [Authy](https://www.authy.com/) el programa indicará que la validación se ha realizado correctamente y se cerrará el programa.
 
