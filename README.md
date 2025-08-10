@@ -6,11 +6,12 @@ Este repositorio contiene los ejecutables y scripts necesarios para implementar 
 
 ## 📂 Estructura del repositorio
 
-C:.
-├───Ejecutables
-│   └───SetUp
-│       └───out
-└───Scripts
+```
+Ejecutables/
+└── SetUp/
+    └── out/
+Scripts/
+```
 
 - **Ejecutables/** → Contiene los archivos `.exe` requeridos para la instalación y ejecución del sistema.
 - **Ejecutables/SetUp/** → Contiene el `exe` necesario para generar los archivos auxiliares para que funcione la herramienta.
@@ -51,13 +52,13 @@ WshShell.CurrentDirectory = "C:\Script\Ejecutables"
 
 ### Crear 2 variables en la HMI
 
-- Nombre sugerido: `LogeadoXUsb`
-- Tipo: **Bit**.
-- Alcance: **Interna, no persistente**.
+- Nombre: `LogeadoXUsb`
+  - Tipo: **Bit**.
+  - Alcance: **Interna, no persistente**.
 
-- Nombre sugerido: `ValidandoPswd`
-- Tipo: **Bit** (dependiendo de la lógica de control).
-- Alcance: **Interna, no persistente**.
+- Nombre : `ValidandoPswd`
+  - Tipo: **Bit** (dependiendo de la lógica de control).
+  - Alcance: **Interna, no persistente**.
 
 ### Crear un evento en la HMI
 
@@ -68,14 +69,20 @@ WshShell.CurrentDirectory = "C:\Script\Ejecutables"
 
 - Configurar los en el apartado usuarios, para los usuarios cuyo nivel de acceso sea 7, o superior, el script `ValidarPassword` como script de Log On, esto lanzará el script en cada incio de sesión de estos usuario con permisos elevados.
 
+### Configuración de cierre de PopUps
+
+- Configurar que los PopUps se cierren si está la variable `ValidandoPswd` activa, esto hay que hacerlo para todas las PopUps, hasta donde sé, la ASEM no permite cerrar todas las PopUps activas de golpe, usar la función `OnTimer` de las pantalla para esto.
+
 ---
 
 ## 🚀 Uso
 
 1. El usuario inicia el proceso en la HMI.
-2. Se solicita la verificación adicional (segundo paso).
+2. Se solicita la verificación adicional, durante este paso se cambiará la pantalla al Anagrama, para evitar que se pueda manipular el sistema sin validarse.
 3. Si la verificación es correcta, el sistema permite la acción solicitada.
-4. En caso contrario, se bloquea la operación.
+4. En caso contrario, se cancela la operación.
+
+**NOTA**: En caso de que se conecte un USB con el archivo `clave_privada.pem`, en la ruta descrita en el punto 4 de "Instalación y configuración, 1. Generación de claves" el sistema se logeará automáticamente como INGENIERO y evitará que se cierra la sesión. Cuando se desconecté se deslogeará de forma automática. Mientras no esté conectado el USB, el sistema se comportará de la forma tradicional, con el añadido de la MFA.
 
 ---
 
