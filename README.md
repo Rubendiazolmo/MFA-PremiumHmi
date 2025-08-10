@@ -83,14 +83,10 @@ WshShell.CurrentDirectory = "C:\Script\Ejecutables"
 3. Si la verificación es correcta, el sistema permite la acción solicitada.
 4. En caso contrario, se cancela la operación.
 
-**NOTA**: En caso de que se conecte un USB con el archivo `clave_privada.pem`, en la ruta descrita en el punto 4 de "Instalación y configuración, 1. Generación de claves" el sistema se logeará automáticamente como INGENIERO y evitará que se cierra la sesión. Cuando se desconecté se deslogeará de forma automática. Mientras no esté conectado el USB, el sistema se comportará de la forma tradicional, con el añadido de la MFA.
-
 ---
 
 ## 📌 Notas
 
-- Este sistema está diseñado para entornos industriales, asegúrese de cumplir con las normativas de seguridad aplicables.
-- Los ejecutables y scripts deben mantenerse actualizados para garantizar la compatibilidad y la seguridad.
-- Para soporte, contacte con el equipo de desarrollo o el administrador de la HMI.
+- En caso de que se conecte un USB con el archivo `clave_privada.pem`, en la ruta descrita en el punto 4 de "Instalación y configuración, 1. Generación de claves" el sistema se logeará automáticamente como INGENIERO y evitará que se cierra la sesión. Cuando se desconecté se deslogeará de forma automática. Mientras no esté conectado el USB, el sistema se comportará de la forma tradicional, con el añadido de la MFA.
 
 ---
