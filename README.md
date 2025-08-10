@@ -8,8 +8,8 @@ Este repositorio contiene los ejecutables y scripts necesarios para implementar 
 
 C:.
 ├───Ejecutables
-│ └───SetUp
-│ └───out
+│   └───SetUp
+│       └───out
 └───Scripts
 
 - **Ejecutables/** → Contiene los archivos `.exe` requeridos para la instalación y ejecución del sistema.
@@ -43,6 +43,7 @@ C:.
 ```vba
 ' Cambiar la carpeta de trabajo a la del ejecutable
 WshShell.CurrentDirectory = "C:\Script\Ejecutables"
+```
 
 ---
 
